@@ -22,7 +22,7 @@ async function post(url, headers, body) {
             GLib.PRIORITY_DEFAULT,
             null);
         if (message.status_code === 401) {
-            throw "request failed: " + message.status_code + "\nDid you provide your OpenAI-API-Key? (Open Settings)";
+            throw "request failed: " + message.status_code + "\nDid you provide your API-Key? (Open Settings)";
         }
         json = JSON.parse(new TextDecoder().decode(bytes.get_data()));
         return json;
