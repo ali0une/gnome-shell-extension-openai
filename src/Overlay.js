@@ -125,10 +125,10 @@ var Overlay = class Overlay {
 
         let showWelcomeBanner = Utils.getSettings().get_boolean("show-welcome-banner");
         if (showWelcomeBanner) {
-            this._appendChatMessage("Welcome to OpenAI GNOME Extension.");
+            this._appendChatMessage("Welcome to LocalLLaMa OpenAI API compatible Extension for Gnome.");
             let token = Utils.getSettings().get_string("openai-api-key");
             if (token.length === 0)
-                this._appendChatMessage("You need a API-Key to use this extension. Please open settings dialog (or type ':settings') and paste your API-Key.");
+                this._appendChatMessage("If you need an API-Key to use this extension. Please open settings dialog (or type ':settings') and paste your API-Key.");
             this._appendChatMessage("Shortcuts:\n" +
                 "- CTRL + L\tClear History\n" +
                 "- ESC\t\tHide Overlay ")
@@ -147,7 +147,7 @@ var Overlay = class Overlay {
         this.inputQuestion = new St.Entry({
             style_class: 'question-input',
             can_focus: true,
-            hint_text: 'Ask ChatGPT something...',
+            hint_text: 'Ask something...',
             track_hover: true,
             x_expand: true
         });
@@ -251,7 +251,7 @@ var Overlay = class Overlay {
         }
 
         openaiClient.ask(question).then(answer => {
-            let chat = "<b>You:</b> " + question.trim() + "\n\n" + "<b>AI:</b> " + answer.trim();
+            let chat = "You: " + question.trim() + "\n\n" + "AI: " + answer.trim();
 
             this.inputQuestion.set_text("");
 
@@ -259,7 +259,7 @@ var Overlay = class Overlay {
 
         }).catch(error => {
             console.error(error);
-            this._appendChatMessage("Error while try to access OpenAI: " + error);
+            this._appendChatMessage("Error while trying to access API: " + error);
         }).finally(() => {
             this.loadingSpinner.set_icon_name(ICON_LOADING_FINISHED);
             this.isLoading = false;
