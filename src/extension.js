@@ -13,8 +13,11 @@ const Me = ExtensionUtils.getCurrentExtension();
 const {Overlay} = Me.imports.Overlay;
 const Utils = Me.imports.Utils;
 
-const INDICATOR_ICON = "face-smile-symbolic";
-const INDICATOR_ICON_HAPPY = "face-smile-big-symbolic";
+// see /usr/share/icons/Adwaita
+//const INDICATOR_ICON = "face-smile-symbolic";
+//const INDICATOR_ICON_HAPPY = "face-smile-big-symbolic";
+const INDICATOR_ICON = "dialog-information-symbolic";
+const INDICATOR_ICON_ON = "content-loading-symbolic";
 
 let indicator;
 let overlay;
@@ -53,7 +56,8 @@ const Indicator = GObject.registerClass(
                 this.icon.icon_name = INDICATOR_ICON;
             } else {
                 overlay.show();
-                this.icon.icon_name = INDICATOR_ICON_HAPPY;
+//                this.icon.icon_name = INDICATOR_ICON_HAPPY;
+                this.icon.icon_name = INDICATOR_ICON_ON;
             }
         }
 
@@ -73,7 +77,8 @@ function init() {
 function enable() {
     // indicator in the status-menu
     indicator = new Indicator();
-    Main.panel.addToStatusArea("ChatGptIndicator", indicator, 1);
+//    Main.panel.addToStatusArea("ChatGptIndicator", indicator, 1);
+    Main.panel.addToStatusArea("ChatIndicator", indicator, 1);
 
     // the overlay which opens when shortcut is pressed
     overlay = new Overlay(indicator);
