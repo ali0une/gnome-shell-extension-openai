@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.etixsoftware.openai" path="/org/gnome/shell/extensions/etixsoftware/openai/">
+  <schema id="org.gnome.shell.extensions.openai" path="/org/gnome/shell/extensions/openai/">
     <!-- See also: https://docs.gtk.org/glib/gvariant-format-strings.html -->
-    <key name="openai-api-key" type="s">
+    <key name="openai-api-url" type="s">
       <default>''</default>
     </key>
 
+    <key name="openai-model" type="s">
+      <default>'llama.cpp'</default>
+    </key>
+
+    <key name="openai-api-key" type="s">
+      <default>'NO_API_KEY'</default>
+    </key>
+
     <key name="shortcut-toggle-overlay" type="as">
-      <default><![CDATA[['<Super>g']]]></default>
+      <default><![CDATA[['<Super>o']]]></default>
     </key>
 
     <key name="system-prompt" type="s">
       <default>''</default>
-      <summary>System prompt for ChatGPT</summary>
+      <summary>System prompt</summary>
     </key>
 
     <key name="show-welcome-banner" type="b">
