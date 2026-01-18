@@ -3,8 +3,8 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Utils = Me.imports.Utils;
 
-const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
-const OPENAI_MODEL = "gpt-3.5-turbo"
+const OPENAI_API_URL = Utils.getSettings().get_string("openai-api-url");
+const OPENAI_MODEL = Utils.getSettings().get_string("openai-model");
 
 let httpClient;
 
@@ -68,7 +68,7 @@ var OpenAiClient = class OpenAiClient {
 
         if (debugMode) {
             let parsedBody = JSON.parse(body);
-            let debugMessage = `Hi, I am not chat-GPT i'm just a test response.`;
+            let debugMessage = `Hi, i'm just a test response.`;
             if (parsedBody.messages[parsedBody.messages.length - 1].content === ':body')
                 debugMessage = body;
 
