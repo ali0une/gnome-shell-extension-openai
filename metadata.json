@@ -3,9 +3,10 @@
         "42",
         "43"
     ],
-    "uuid": "openai-gnome@etixsoftware.de",
-    "name": "ChatGPT / OpenAI for Gnome",
-    "description": "ChatGPT / OpenAI Extension for Gnome. It uses your API token to access the OpenAI services.",
-    "url": "https://github.com/metix/gnome-shell-extension-openai",
-    "settings-schema":"org.gnome.shell.extensions.etixsoftware.openai"
+    "uuid": "openai-gnome@ali0une.org",
+    "name": "LocalLLaMa OpenAI for Gnome",
+    "description": "LocalLLaMa OpenAI API compatible Extension for Gnome.",
+    "settings-schema": "org.gnome.shell.extensions.openai",
+    "url": "https://github.com/ali0une",
+    "author": "ali0une"
 }
