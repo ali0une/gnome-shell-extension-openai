@@ -23,7 +23,7 @@ clean:
 
 extension: ./schemas/gschemas.compiled
 
-./schemas/gschemas.compiled: ./schemas/org.gnome.shell.extensions.etixsoftware.openai.gschema.xml
+./schemas/gschemas.compiled: ./schemas/org.gnome.shell.extensions.openai.gschema.gschema.xml
 	glib-compile-schemas ./schemas/
 
 install: install-local
